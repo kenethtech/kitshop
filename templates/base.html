@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css1/css.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'fontawesome-free-5.15.4-web/js/all.js' %}"></script>
+    <title>{% block title %}{% if page_title %}{{page_title }} - {% endif %} {{ site_name }}{% endblock %}</title>
+    <meta name="keywords" content="{{ meta_keywords }}" />
+    <meta name="description" content="{{ meta_description }}" />
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row justify-content-center bg-light">
+        {% block site_wrapper %}{% endblock %}
+    </div>
+</div>
+
+</body>
+</html>

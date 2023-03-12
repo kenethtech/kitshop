@@ -1,0 +1,23 @@
+
+
+{% extends "catalog.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-lg-9 col-ms-8 col-md-8">
+<h2>Edit Order Information</h2>
+{{ response }}
+{% if error_message %}
+   <ul class="errorlist">
+       <li>{{ error_message }}</li>
+   </ul>
+{% endif %}
+<form class="form" action="." method="post">
+
+        {{ form|crispy }}
+
+                {% csrf_token %}
+                <input type="submit" value="Save Information" class="submit btn btn-primary mb-5">
+</form>
+</div>
+{% endblock %}

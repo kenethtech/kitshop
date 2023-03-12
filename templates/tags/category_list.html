@@ -1,0 +1,17 @@
+
+<ul class="nav flex-column" id="categories">
+    <li class="nav-item">
+        <h3>Categories</h3>
+    </li>
+{% with active_categories as cats %}
+     {% for c in cats %}
+     <li class="nav-item">
+      {% if c.get_absolute_url == request_path %}
+          {{ c.name }}<br>
+      {% else %}
+          <a href="{{ c.get_absolute_url }}" class="category nav-link">{{ c.name }}</a><br>
+      {% endif %}
+     </li>
+     {% endfor %}
+ {% endwith %}
+</ul>

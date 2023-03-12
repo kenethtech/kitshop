@@ -1,0 +1,18 @@
+
+
+{% extends "catalog.html" %}
+
+{% block title %}
+    {{ flatpage.title }}-{{site_name}}
+{% endblock %}
+
+{% block content %}
+<div class="col-lg-12" >
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12 col-ms-12">
+            <h1>{{ flatpage.title }}</h1>
+            {{ flatpage.content }}
+        </div>
+    </div>
+</div>
+{% endblock %}

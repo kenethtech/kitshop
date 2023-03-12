@@ -1,0 +1,40 @@
+
+
+{% extends "catalog.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if forms.errors %}
+     <ul class="errorlist">
+         <li>You entered an invalid Username or password.</li>
+     </ul>
+     <br>
+{% endif %}
+<div class="col-lg-12">
+   <div class="row justify-content-center">
+    <div class="col-lg-7 col-ms-auto col-md-4 mb-3 ">
+        <div class="card bg-light mt-5 py-2">
+            <h2 class="mb-4 card-title text-center mt-2">Login Page</h2>
+            <div class="card-body mr-2 ml-2">
+                <form class="form-inline" method="post" action="{% url 'login' %}">
+
+                  {{ form.username|as_crispy_field }}
+
+
+                  {{ form.password|as_crispy_field }}
+
+
+
+                {% csrf_token %}
+                <input type="submit" value="Login" class="btn btn-primary">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}">
+
+</form>
+            </div>
+        </div>
+    </div>
+   </div>
+</div>
+
+{% endblock %}

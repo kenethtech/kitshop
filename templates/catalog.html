@@ -1,0 +1,65 @@
+
+{% extends "base.html" %}
+
+{% load catalog_tags %}
+{% load search_tags %}
+
+{% block site_wrapper %}
+<div class="container-fluid bg-light" >
+<div class="position-relative top-0 start-50 translate-middle-x" id="maind" style="width:80%;background-color:White;">
+   <!-- <div id="banner">
+        <div class="bannerIEPadder">
+            <div class="cart_box">
+
+            </div>
+            Kits Shop
+        </div>
+    </div>  -->
+    <nav class="navbar navbar-expand-lg sticky-top" style="background-color:Orange;">
+        <h1 style="margin-right:5px;">KitsShop   </h1>
+        <br>
+        <br>
+
+        {% include 'tags/templates/navigation.html' %}
+        <div class="px-5">{% cart_box request %}</div>
+    </nav>
+   <!-- <div id="navigation">
+        <div class="navIEPadder">
+
+        </div>
+    </div> -->
+
+ <div class="container-fluid">
+   <div class="row">
+
+            <nav class="col-md-2 d-md-block bg-white sidebar">
+               <div class="sidebar-sticky">
+
+                   {% search_box request %}
+
+
+                      <br />
+                     {% category_list request.path %}
+
+               </div>
+            </nav>
+
+
+        <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-4">
+            <div class="row align-items-center justify-content-between" id="contentb">
+
+                {% block content %}{% endblock %}
+
+            </div>
+        </main>
+
+    <div class="sticky-bottom" id="footer">
+        <div class="footerIEPadder">
+            {% footer_links %}
+        </div>
+    </div>
+   </div>
+ </div>
+</div>
+</div>
+{% endblock %}

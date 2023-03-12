@@ -1,0 +1,11 @@
+
+
+{% for p in products %}
+   {% if forloop.first %}
+       <h4 class="text-dark">{{ header_text }}</h4>
+   {% endif %}
+   {% include 'tags/product_thumbnail.html' %}
+   {% if forloop.last %}
+       <div class="cb">&nbsp;</div>
+   {% endif %}
+{% endfor %}

@@ -1,0 +1,22 @@
+
+
+{% extends "catalog.html" %}
+{% load search_tags %}
+
+{% block content %}
+<div class="alert alert-info">
+    <h6 class="alert-heading"><i class="fas fa-info-circle" aria-hidden="true"></i><strong> Search Results for: '{{ word }}'</strong></h6>
+</div>
+<div class="col-lg-12">
+    <div class="row">
+
+  {% for p in results %}
+     {% include 'tags/product_thumbnail.html' %}
+  {% empty %}
+     No product were found matching your search terms.
+  {% endfor %}
+  <div class="cb">&nbsp;</div>
+  {% pagination_links request paginator %}
+    </div>
+</div>
+{% endblock %}

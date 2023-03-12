@@ -1,0 +1,7 @@
+
+
+{% with cart_item_count as cart_count %}
+  <a class="navbar-brand ml-5" href="{% url 'show_cart' %}" >
+    <i class="fas fa-shopping-cart"></i>{{ cart_count }} Item{{ cart_count|pluralize }}
+  </a>
+{% endwith %}

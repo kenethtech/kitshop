@@ -1,0 +1,25 @@
+{% load catalog_filters %}
+
+		     			<div class="col-ms-7 col-md-5 col-lg-4 mb-4 mr-4 ml-4 mt-3">
+				           <div class="card">
+				     	      <div class="card-body">
+								  <a href="{{ p.get_absolute_url }}" class="bn" >
+                                    {% load static %}
+									   <img style="width:150px; height:150px;" src="{% static  p.thumbnail.url %}" alt="{{ p.name }}">
+                                        <br />
+                                  </a>
+				     		      <h5 class="card-title">{{ p.name }}</h5>
+				     		      <h6 class="card-subtitle mb-2 text-muted">
+									  {% if p.sale_price %}
+                                       <p class="text-danger">was: <del>{{ p.old_price|currency }}</del></p>
+                                       Now: {{ p.price|currency }}
+                                            {% else %}
+                                       Price:{{ p.price|currency }}
+                                       {% endif %}
+								  </h6>
+				     	      </div>
+
+				            </div>
+
+			            </div>
+

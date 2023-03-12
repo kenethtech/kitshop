@@ -1,0 +1,8 @@
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+<form method="get" role="search" class="form-inline my-2 my-lg-0" id="search" action="{% url 'search_results' %}" xmlns="http://www.w3.org/1999/html">
+
+       {{ form.word|as_crispy_field }}
+    {% csrf_token %}
+        <input id="id_word" type="submit" value="Search" class="btn btn-outline-success my-2 my-sm-0">
+</form>

@@ -1,0 +1,15 @@
+{% extends "catalog.html" %}
+{% load catalog_tags %}
+{% block content %}
+<div class="row justify-content-between">
+    <div class="col-lg-12">
+        <div class="row">
+           {% product_list recently_viewed 'Your Recently Viewed' %}
+            {% product_list view_recs 'Similar Products' %}
+            {% product_list featured 'Featured Products' %}
+            {% product_list search_recs 'Recommended For You' %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

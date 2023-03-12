@@ -1,0 +1,75 @@
+
+{% extends 'catalog.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% load checkout_tags %}
+
+{% block content %}
+{% if not request.user.is_authenticated %}
+<div class="fr bg-danger">
+    <a class="text-white" href="{% url 'login' %}?next={{request.path }}">
+        Have an account? Please Sign in now!
+    </a>
+</div>
+{% endif %}
+<h4><strong>Checkout</strong></h4>
+{% if error_message %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+<hs><i class="fas fa-exclamation-triangle"></i><strong> An error occurred while Checking out!!</strong></hs>
+    <ul class="">
+        <li class="">{{ error_message }}</li>
+    </ul>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+<div class="col-lg-11 col-md-12 col-ms-12">
+<form class="form" method="post" action=".">
+    <fieldset class="checkout">
+        <legend>Contact Info</legend>
+        <table>
+            {% form_table_row form.email|as_crispy_field %}
+            {% form_table_row form.phone|as_crispy_field %}
+        </table>
+
+    </fieldset>
+    <fieldset class="checkout">
+        <legend>Shipping Info</legend>
+        <table>
+            {% form_table_row form.shipping_name|as_crispy_field %}
+            {% form_table_row form.shipping_address_1|as_crispy_field %}
+            {% form_table_row form.shipping_address_2|as_crispy_field %}
+            {% form_table_row form.Shipping_city|as_crispy_field %}
+            {% form_table_row form.shipping_state_or_county|as_crispy_field %}
+            {% form_table_row form.shipping_zip|as_crispy_field %}
+            {% form_table_row form.shipping_country|as_crispy_field %}
+        </table>
+    </fieldset>
+    <fieldset class="checkout">
+        <legend>Billing Info</legend>
+        <table>
+            {% form_table_row form.billing_name|as_crispy_field %}
+            {% form_table_row form.billing_address_1|as_crispy_field %}
+            {% form_table_row form.billing_address_2|as_crispy_field %}
+            {% form_table_row form.billing_city|as_crispy_field %}
+            {% form_table_row form.billing_state_or_county|as_crispy_field %}
+            {% form_table_row form.billing_zip|as_crispy_field %}
+            {% form_table_row form.billing_country|as_crispy_field %}
+        </table>
+    </fieldset>
+    <fieldset class="checkout">
+        <legend>Lipa Na Mpesa</legend>
+        <table>
+            {% form_table_row form.mpesa_phone_number|as_crispy_field %}
+        </table>
+    </fieldset>
+    <table>
+        <tr>
+            {% csrf_token %}
+            <th colspan="2">{% csrf_token %}<input type="submit" value="Place Order" class="submit btn btn-primary float-right"></th>
+        </tr>
+    </table>
+</form>
+</div>
+
+{% endblock %}
