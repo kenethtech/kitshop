@@ -36,8 +36,8 @@ ENABLE_SSL = False
 
 AUTHNET_POST_URL = 'test.authorize.net'
 AUTHNET_POST_PATH = '/gateway/transact.dll'
-AUTHNET_LOGIN = '2yK97Q7tg'
-AUTHNET_KEY = '6F8r4W456VqV2f79'
+AUTHNET_LOGIN = ''
+AUTHNET_KEY = ''
 
 #Lipa na Mpesa credentials
 MPESA_CONSUMER_KEY = "YOUR CONSUMER KEY"
